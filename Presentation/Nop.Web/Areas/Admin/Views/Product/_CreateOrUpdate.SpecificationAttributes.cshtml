@@ -1,0 +1,159 @@
+﻿@model ProductModel
+
+<div class="panel-body">
+    <p>
+        @T("Admin.Catalog.Products.SpecificationAttributes.Hint")
+    </p>
+    @if (Model.Id > 0)
+    {
+        /*hide "add spec" table if no attributes are defined*/
+        if (Model.HasAvailableSpecificationAttributes)
+        {
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="specificationattributes-grid"></div>
+                    <script>
+                        $(document).ready(function() {
+                            $("#specificationattributes-grid").kendoGrid({
+                                dataSource: {
+                                    type: "json",
+                                    transport: {
+                                        read: {
+                                            url: "@Html.Raw(Url.Action("ProductSpecAttrList", "Product"))",
+                                            type: "POST",
+                                            dataType: "json",
+                                            data: function additionalData() {
+                                                var data = {
+                                                    ProductId: '@(Model.Id)'
+                                                };
+                                                addAntiForgeryToken(data);
+                                                return data;
+                                            }
+                                        },
+                                        destroy: {
+                                            url: "@Html.Raw(Url.Action("ProductSpecAttrDelete", "Product"))",
+                                            type: "POST",
+                                            dataType: "json",
+                                            data: addAntiForgeryToken
+                                        }
+                                    },
+                                    schema: {
+                                        data: "Data",
+                                        total: "Total",
+                                        errors: "Errors",
+                                        model: {
+                                            id: "Id",
+                                            fields: {
+                                                //ProductId: { editable: false, type: "number" },
+                                                AttributeTypeName: { editable: false, type: "string" },
+                                                AttributeName: { editable: false, type: "string" },
+                                                ValueRaw: { editable: true, type: "string" },
+                                                AllowFiltering: { editable: true, type: "boolean" },
+                                                ShowOnProductPage: { editable: true, type: "boolean" },
+                                                DisplayOrder: { editable: true, type: "number" },
+                                                Id: { editable: false, type: "number" }
+                                            }
+                                        }
+                                    },
+                                    requestEnd: function(e) {
+                                        if (e.type == "update") {
+                                            this.read();
+                                        }
+                                    },
+                                    error: function(e) {
+                                        display_kendoui_grid_error(e);
+                                        // Cancel the changes
+                                        this.cancelChanges();
+                                    },
+                                    pageSize: @(Model.ProductSpecificationAttributeSearchModel.PageSize),
+                                    serverPaging: true,
+                                    serverFiltering: true,
+                                    serverSorting: true
+                                },
+                                pageable: {
+                                    refresh: true,
+                                    pageSizes: [@(Model.ProductSpecificationAttributeSearchModel.AvailablePageSizes)],
+                                    @await Html.PartialAsync("_GridPagerMessages")
+                                },
+                                editable: {
+                                    confirmation: "@T("Admin.Common.DeleteConfirmation")",
+                                    mode: "inline"
+                                },
+                                scrollable: false,
+                                columns: [
+                                    {
+                                        field: "AttributeTypeName",
+                                        title: "@T("Admin.Catalog.Products.SpecificationAttributes.Fields.AttributeType")",
+                                        width: 150
+                                    }, {
+                                        field: "AttributeName",
+                                        title: "@T("Admin.Catalog.Products.SpecificationAttributes.Fields.SpecificationAttribute")",
+                                        width: 200
+                                    }, {
+                                        field: "ValueRaw",
+                                        title: "@T("Admin.Catalog.Products.SpecificationAttributes.Fields.Value")",
+                                        width: 200,
+                                        encoded: false
+                                    }, {
+                                        field: "AllowFiltering",
+                                        title: "@T("Admin.Catalog.Products.SpecificationAttributes.Fields.AllowFiltering")",
+                                        width: 150,
+                                        headerAttributes: { style: "text-align:center" },
+                                        attributes: { style: "text-align:center" },
+                                        template: '# if(AllowFiltering) {# <i class="fa fa-check true-icon"></i> #} else {# <i class="fa fa-close false-icon"></i> #} #'
+                                    }, {
+                                        field: "ShowOnProductPage",
+                                        title: "@T("Admin.Catalog.Products.SpecificationAttributes.Fields.ShowOnProductPage")",
+                                        width: 150,
+                                        headerAttributes: { style: "text-align:center" },
+                                        attributes: { style: "text-align:center" },
+                                        template: '# if(ShowOnProductPage) {# <i class="fa fa-check true-icon"></i> #} else {# <i class="fa fa-close false-icon"></i> #} #'
+                                    },
+                                    {
+                                        field: "DisplayOrder",
+                                        title: "@T("Admin.Catalog.Products.SpecificationAttributes.Fields.DisplayOrder")",
+                                        width: 150,
+                                        //integer format
+                                        format: "{0:0}"
+                                    }, {
+                                        field: "Id",
+                                        title: "@T("Admin.Common.Edit")",
+                                        width: 100,
+                                        headerAttributes: { style: "text-align:center" },
+                                        attributes: { style: "text-align:center" },
+                                        template: '<a class="btn btn-default" href="@Html.Raw(Url.Action("ProductSpecAttributeAddOrEdit", "Product", new {productId = Model.Id}))&specificationId=#=Id#"><i class="fa fa-pencil"></i>@T("Admin.Common.Edit")</a>'
+                                    }
+                                ]
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="panel-footer">
+                    <a asp-action="ProductSpecAttributeAddOrEdit"
+                       asp-route-productId="@Model.Id"
+                       class="btn bg-blue">
+                        <i class="fa fa-plus-square"></i>
+                        @T("Admin.Catalog.Products.SpecificationAttributes.AddButton")
+                    </a>
+
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    @T("Admin.Catalog.Products.SpecificationAttributes.NoAttributes")
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @T("Admin.Catalog.Products.SpecificationAttributes.SaveBeforeEdit")
+            </div>
+        </div>
+    }
+</div>
