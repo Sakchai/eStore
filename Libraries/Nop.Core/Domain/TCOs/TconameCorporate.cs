@@ -16,6 +16,6 @@ namespace Nop.Core.Domain.TCOs
         public DateTime CreatedOnUtc { get; set; }
         public DateTime UpdatedOnUtc { get; set; }
 
-        public virtual TcOwner IdNavigation { get; set; }
+        public virtual TcOwner TcOwner { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Nop.Core.Domain.Orders;
+﻿using Nop.Core.Domain.Customers;
+using Nop.Core.Domain.Orders;
 using Nop.Core.Domain.Payments;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,6 @@ namespace Nop.Core.Domain.TCOs
         public decimal OnAcctAmount { get; set; }
         public DateTime? DateChanged { get; set; }
         public DateTime? DateDeleted { get; set; }
-        public DateTime? DateCreated { get; set; }
         public string ChangedBy { get; set; }
         public short MaxExtension { get; set; }
         public string Fname { get; set; }
@@ -67,5 +67,7 @@ namespace Nop.Core.Domain.TCOs
         public virtual ICollection<PaymentHeader> PaymentHeader { get; set; }
         public virtual ICollection<TcoAddress> TcoAddress { get; set; }
         public virtual ICollection<TcoAttribute> TcoAttribute { get; set; }
+        public virtual Customer Customer { get; set; }
+        public int? CustomerId { get; set; }
     }
 }

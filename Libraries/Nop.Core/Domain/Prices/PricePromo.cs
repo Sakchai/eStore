@@ -4,9 +4,8 @@ using System.Collections.Generic;
 
 namespace Nop.Core.Domain.Prices
 {
-    public partial class PricePromo
+    public partial class PricePromo : BaseEntity
     {
-        public int Id { get; set; }
         public int? ProductId { get; set; }
         public string ProdCode { get; set; }
         public DateTime StartDate { get; set; }

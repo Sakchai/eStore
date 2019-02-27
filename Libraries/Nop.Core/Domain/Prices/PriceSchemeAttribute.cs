@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace Nop.Core.Domain.Prices
 {
-    public partial class PriceSchemeAttributes
+    public partial class PriceSchemeAttribute : BaseEntity
     {
-        public int Id { get; set; }
         public int? PriceSchemeId { get; set; }
         public int? AttributeCode { get; set; }
         public decimal? NumericValue { get; set; }

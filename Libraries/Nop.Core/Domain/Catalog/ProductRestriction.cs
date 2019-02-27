@@ -5,7 +5,7 @@ namespace Nop.Core.Domain.Catalog
 {
     public partial class ProductRestriction : BaseEntity
     {
-        public int? ProductCountryId { get; set; }
+        public int? ProductId { get; set; }
         public string ProdCode { get; set; }
         public bool? ProdRestrict { get; set; }
         public string RestrictCode { get; set; }
@@ -13,6 +13,6 @@ namespace Nop.Core.Domain.Catalog
         public DateTime CreatedOnUtc { get; set; }
         public DateTime UpdatedOnUtc { get; set; }
 
-        public virtual ProductQ ProductCountry { get; set; }
+        public virtual ProductQ Product { get; set; }
     }
 }

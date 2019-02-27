@@ -4,15 +4,14 @@ using System.Collections.Generic;
 
 namespace Nop.Core.Domain.Prices
 {
-    public partial class PriceScheme
+    public partial class PriceScheme : BaseEntity
     {
         public PriceScheme()
         {
             PriceRestriction = new HashSet<PriceRestriction>();
             PriceSchemeAttributes = new HashSet<PriceSchemeAttributes>();
         }
-
-        public int Id { get; set; }
+        
         public string PriceSchemeName { get; set; }
         public int CustomerTypeId { get; set; }
         public int PricePlanId { get; set; }
@@ -48,6 +47,6 @@ namespace Nop.Core.Domain.Prices
 
         public virtual ProductQ Product { get; set; }
         public virtual ICollection<PriceRestriction> PriceRestriction { get; set; }
-        public virtual ICollection<PriceSchemeAttributes> PriceSchemeAttributes { get; set; }
+        public virtual ICollection<PriceSchemeAttribute> PriceSchemeAttribute { get; set; }
     }
 }

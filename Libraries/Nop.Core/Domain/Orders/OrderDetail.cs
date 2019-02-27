@@ -50,7 +50,7 @@ namespace Nop.Core.Domain.Orders
         public DateTime CreatedOnUtc { get; set; }
         public DateTime UpdatedOnUtc { get; set; }
 
-        public virtual OrderAttribute IdNavigation { get; set; }
+        public virtual OrderAttribute OrderAttribute { get; set; }
         public virtual OrderHeader OrderHeader { get; set; }
         public virtual ProductQ Product { get; set; }
     }

@@ -24,7 +24,7 @@ namespace Nop.Core.Domain.Payments
         public int? Status { get; set; }
         public byte SentEmail { get; set; }
         public string Tco { get; set; }
-        public int? TcownerId { get; set; }
+        public int? TcOwnerId { get; set; }
         public DateTime CreatedOnUtc { get; set; }
         public DateTime UpdatedOnUtc { get; set; }
 

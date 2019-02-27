@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace Nop.Core.Domain.Prices
 {
-    public partial class PriceRestriction
+    public partial class PriceRestriction : BaseEntity
     {
-        public int Id { get; set; }
         public int PriceSchemeId { get; set; }
         public string CountryCode { get; set; }
         public bool IsActive { get; set; }
