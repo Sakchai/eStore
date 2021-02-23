@@ -1,9 +1,11 @@
-﻿MIT License
+﻿nopCommerce Public License Version 3.0 ("NPL")
 
-Copyright (c) 2019 Sakchai Thanasamut
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+nopCommerce open source edition is licensed under nopCommerce Public License. It's basically a GPLv3 License plus the "powered by nopCommerce" text requirement on every single page. The nopCommerce Public License Version 3.0 ("NPL") consists of the GPL3 License with the Additional Terms below. The original GPLv3 License can be found at: http://opensource.org/licenses/GPL-3.0
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+Additional nopCommerce terms:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+However, in addition to the other notice obligations, (1) all copies of the Program in Executable and Source Code form must, as a form of attribution of the original author, include on each user interface screen (i) the "powered by nopCommerce" text; and (2) all derivative works and copies of derivative works of the Covered Code in Executable and Source Code form must include on each user interface screen (i) the "powered by nopCommerce" text. In addition, the "powered by nopCommerce" text, as appropriate, must be visible to all users, must appear in each user interface screen, and must be in the same position. When users click on the "powered by nopCommerce" text it must direct them to http://www.nopCommerce.com. This obligation shall also apply to any copies or derivative works. Find more info at http://www.nopcommerce.com/p/1/nopcommerce-copyright-removal-key.aspx
+
+
+License page: http://www.nopcommerce.com/licensev3.aspx

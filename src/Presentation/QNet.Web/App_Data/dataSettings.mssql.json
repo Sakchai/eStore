@@ -1,5 +1,0 @@
-﻿{
-  "DataProvider": "mysql",
-  "DataConnectionString": "server=localhost;database=gqnet;user=root;password=1q2w3e4r%T",
-  "RawDataSettings": {}
-}

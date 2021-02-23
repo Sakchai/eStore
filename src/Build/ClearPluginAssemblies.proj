@@ -1,19 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-    <Copyright>Copyright © QNet Solutions, Ltd</Copyright>
-    <Company>QNet Solutions, Ltd</Company>
-    <Authors>QNet Solutions, Ltd</Authors>
+    <TargetFramework>net5.0</TargetFramework>
+    <Copyright>Copyright © Nop Solutions, Ltd</Copyright>
+    <Company>Nop Solutions, Ltd</Company>
+    <Authors>Nop Solutions, Ltd</Authors>
     <PackageLicenseUrl>http://www.nopcommerce.com/licensev3.aspx</PackageLicenseUrl> 
     <PackageProjectUrl>http://www.nopcommerce.com/</PackageProjectUrl> 
     <RepositoryUrl>https://github.com/nopSolutions/nopCommerce</RepositoryUrl> 
     <RepositoryType>Git</RepositoryType>
 
-    <OutputPath>$(MSBuildProjectDirectory)\..\Presentation\QNet.Web\bin\$(Configuration)</OutputPath>
+    <OutputPath>$(MSBuildProjectDirectory)\..\Presentation\Nop.Web\bin\$(Configuration)</OutputPath>
   </PropertyGroup> 
 
-  <Target Name="QNetClear">
+  <Target Name="NopClear">
     
     <!-- When .NET Core builds a project, it copies all referenced libraries to the output folder.
     For plugins it creates too many unnecessary files that just take up space.
